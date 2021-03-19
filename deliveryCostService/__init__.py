@@ -11,7 +11,7 @@ class DeliveryCostService(ServiceBase):
     @rpc(Float, Float, _returns=Float)
     def deliveryCost(ctx, distance, weight):
         cost = weight * distance / 100.0  # 1 euro/kg for 100 km
-        return ceil(cost * 100) / 100  # rounded 2 digits after comma
+        return round(cost, 2)  # rounded 2 digits after comma
 
 
 application = Application([DeliveryCostService], tns='DeliveryCost', in_protocol=Soap11(validator='lxml'),

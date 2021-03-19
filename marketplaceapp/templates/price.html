@@ -10,7 +10,7 @@
         <p>Le produit pèse {{ product['weight'] }}kg, et doit être parcourir une distance de {{ distance }}km pour vous
             être livré, les frais de livraisons s'élèvent à {{ deliveryCost }}€.</p>
 
-        <form action="/payment/"> <input type="submit" value="Payer les {{ product['price'] + deliveryCost }}€" /> </form>
+        <form action="/payment/"> <input type="submit" value="Payer les {{ totalPrice }}€" /> </form>
     {% else %}
         <p> Vous n'êtes pas connecté. Veuillez <a href="/connection/">vous connecter</a> pour connaître les frais de livraison,
             et passer commande. </p>

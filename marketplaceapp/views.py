@@ -44,9 +44,10 @@ def price(product_id):
     else:
         distance = computeDeleveryDistance(userInfos['id'], product['sellerId'])
         deliveryCost = computeDeleveryCost(distance, product['weight'])
+        totalPrice = product['price'] + deliveryCost
 
     return render_template('price.html', isUserConnected=userInfos['connected'], userName=userInfos['firstName'],
-                           product=product, distance=distance, deliveryCost=deliveryCost)
+                           product=product, distance=distance, deliveryCost=deliveryCost, totalPrice=totalPrice)
 
 
 @app.route('/connection/')
@@ -135,6 +136,6 @@ def computeDeleveryDistance(buyerId, sellerId):
 
 
 def computeDeleveryCost(distance, weight):
-    client = Client('http://127.0.0.1:8000/?wsdl')
+    client = Client('https://deliverycostservice-morand.herokuapp.com/?wsdl')
     result = client.service.deliveryCost(distance, weight)
     return result
