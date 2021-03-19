@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for i in range(products|length) %}
+        {% with product = products[i] %}
+            <a href="/price/{{ product['id'] }}">
+                {% include 'productDisplay.html' %}
+            </a>
+        {% endwith %}
+    {% endfor %}
+{% endblock %}

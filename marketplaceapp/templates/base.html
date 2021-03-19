@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My MarketPlace</title>
+</head>
+<body>
+    {% if isUserConnected %}
+        <p>Bonjour {{ userName }} !</p>
+            <form action="/logout/"> <input type="submit" value="Se déconnecter" /> </form>
+    {% else %}
+        <a href="/connection/">Se connecter</a>
+        <a href="/registration/">S'inscrire</a>
+    {% endif %}
+    <h1> <a href="/">My MarketPlace </a></h1>
+{% block content %}{% endblock %}
+</body>
+</html>

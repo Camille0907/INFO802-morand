@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Prix </h1>
+
+      {% include 'productDisplay.html' %}
+
+    <p>Le produit coûte {{ product['price'] }}€.</p>
+
+    {% if isUserConnected %}
+        <p>Le produit pèse {{ product['weight'] }}kg, et doit être parcourir une distance de {{ distance }}km pour vous
+            être livré, les frais de livraisons s'élèvent à {{ deliveryCost }}€.</p>
+
+        <form action="/payment/"> <input type="submit" value="Payer les {{ product['price'] + deliveryCost }}€" /> </form>
+    {% else %}
+        <p> Vous n'êtes pas connecté. Veuillez <a href="/connection/">vous connecter</a> pour connaître les frais de livraison,
+            et passer commande. </p>
+        <p> Si vous vous êtes déjà connecté, autorisez les cookies dans votre navigateur et <a href="/connection/">reconnectez-vous.</a> </p>
+    {% endif %}
+{% endblock %}

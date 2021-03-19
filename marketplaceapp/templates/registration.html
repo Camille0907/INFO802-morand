@@ -1,0 +1,34 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>S'inscrire</title>
+</head>
+<body>
+    <h1> Inscription </h1>
+    <form action="/register/" method="post">
+        <p>Remplissez les informations pour créer un compte.</p>
+        <hr>
+
+        <label for="firstName"><b>Prénom</b></label>
+        <input type="text" name="firstName" id="firstName" required>
+
+        <label for="postcode"><b>Code postal (français)</b></label>
+        <input type="text" name="postcode" id="postcode" required>
+
+        {% if error %}
+            <p>Le nom d'utilisateur existe déjà: veuillez en choisir un autre.</p>
+        {% endif %}
+        <label for="username"><b>Nom d'utilisateur</b></label>
+        <input type="text" name="username" id="username" required>
+
+        <label for="password"><b>Mot de passe</b></label>
+        <input type="password" name="password" id="password" required>
+
+        <hr>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+    <p>Vous avez déjà un compte ? <a href="/connection/">Connectez-vous.</a></p>
+</body>
+</html>
