@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <h2>Ajouter un produit</h2>
-    {% with formAction = "/addProduct/", lowerVerb = "ajouter", upperVerb = "Ajouter" %}
+    {% with formAction = "/addProduct/", lowerVerb = "ajouter", upperVerb = "Ajouter", product = {} %}
             {% include 'productForm.html' %}
     {% endwith %}
 {% endblock %}
