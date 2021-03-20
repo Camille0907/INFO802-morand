@@ -32,7 +32,7 @@ def index():
     userInfos = getUserInfos()
 
     return render_template('index.html', isUserConnected=userInfos['connected'], userName=userInfos['firstName'],
-                           products=products)
+                           products=products, isOnIndex=True)
 
 
 @app.route('/price/<product_id>/')
@@ -136,8 +136,7 @@ def personnalProducts():
     products = result.to_dict()['data']['productsBySellerId']
 
     return render_template('personnalProduct.html', isUserConnected=userInfos['connected'],
-                           userName=userInfos['firstName'],
-                           products=products)
+                           userName=userInfos['firstName'], isOnPersonnelProducts=True, products=products)
 
 
 @app.route('/deleteProduct/<product_id>')

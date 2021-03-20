@@ -1,25 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Modifier un produit</h1>
-    <form action="/modifyProduct/{{ product['id'] }}" method="post">
-        <p>Remplissez les informations pour ajouter un produit.</p>
-        <hr>
-
-        <label for="entitle"><b>Intitulé du produit</b></label>
-        <input type="text" name="entitle" id="entitle" value="{{ product['entitle'] }}" required>
-
-        <label for="imageRef"><b>Lien vers une image du produit (en ligne)</b></label>
-        <input type="url" name="imageRef" id="imageRef" value={{ product['imageRef'] }} required>
-
-        <label for="price"><b>Prix du produit</b></label>
-        <input type="text" name="price" id="price" value={{ product['price'] }} required>
-
-        <label for="weight"><b>Poids du produit</b></label>
-        <input type="text" name="weight" id="weight" value={{ product['weight'] }} required>
-
-        <hr>
-
-        <button type="submit">Modifier le produit</button>
-    </form>
-    <a href="/personnalProducts/"> <button type="submit">Annuler</button> </a>
+    <h2>Modifier un produit</h2>
+    {% with formAction = "/modifyProduct/"+product['id'], lowerVerb = "modifier", upperVerb = "Modifier" %}
+        {% include 'productForm.html' %}
+    {% endwith %}
 {% endblock %}

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0; url='/index/" />
+    <link href="../static/css/style.css" rel="stylesheet" media="all" type="text/css">
     <title>
         {% if login %}Authentification réussie
         {% else %}Déconnexion réussie
@@ -10,11 +11,12 @@
     </title>
 </head>
 <body>
-    <h1>
+    <h1><a href="/">My MarketPlace </a></h1>
+    <h2>
         {% if login %}Authentification réussie
         {% else %}Déconnexion réussie
         {% endif %}
-    </h1>
+    </h2>
     <p>Si la redirection ne fonctionne pas, suivez <a href="/index/">ce lien</a>.</p>
 </body>
 </html>

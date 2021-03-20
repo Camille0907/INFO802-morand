@@ -3,26 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Se connecter à My MarketPlace</title>
+    <link href="../static/css/style.css" rel="stylesheet" media="all" type="text/css">
 </head>
 <body>
-    <h1> Connexion </h1>
-    <form action="/login/" method="post">
-        <hr>
-        {% if error %}
-            <p>Identifiant ou mot de passe incorrect</p>
-        {% endif %}
-        <label for="username">
-            <b>Identifiant</b>
-            <input type="text" id="username" name="username" required>
-        </label>
+    <h1><a href="/">My MarketPlace </a></h1>
+    <h2> Connexion </h2>
+    <form action="/login/" method="post" class="connection">
+        <div class="container">
+            {% if error %}
+                <p class="error">Identifiant ou mot de passe incorrect</p>
+            {% endif %}
+            <label for="username">Identifiant</label>
+            <input type="text" id="username" name="username" required><br>
 
-        <label for="password">
-            <b>Mot de passe</b>
-            <input type="password" id="password" name="password" required>
-        </label>
-        <hr>
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required><br>
 
-        <button type="submit">Se connecter</button>
+            <button type="submit">Se connecter</button>
+        </div>
     </form>
     <p>Pas encore de compte ? <a href="/registration/">Créez-en un.</a></p>
 </body>

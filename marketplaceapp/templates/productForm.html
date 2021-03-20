@@ -1,0 +1,23 @@
+<form action={{ formAction }} method="post" class="product">
+        <h4>Remplissez les informations pour {{ lowerVerb }} un produit.</h4>
+        <div class="container">
+            <label for="entitle">Intitulé du produit</label>
+            <input type="text" name="entitle" id="entitle" value="{{ product['entitle'] }}" required>
+            <br>
+
+            <label for="imageRef">Lien vers une image du produit</label>
+            <input type="url" name="imageRef" id="imageRef" value="{{ product['imageRef'] }}" required>
+            <br>
+
+            <label for="price">Prix du produit</label>
+            <input type="text" name="price" id="price" value="{{ product['price'] }}" required>
+            <br>
+
+            <label for="weight">Poids du produit</label>
+            <input type="text" name="weight" id="weight" value="{{ product["weight"] }}" required>
+            <br>
+
+            <button type="submit"> {{ upperVerb }} le produit</button>
+            <a href="/personnalProducts/">Annuler </a>
+        </div>
+    </form>

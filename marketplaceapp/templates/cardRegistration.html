@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1> Passer la commande </h1>
-    <div>
+    <h2> Passer la commande </h2>
+    <form action={{ registrationUrl }} method="post" class="cardRegistration">
         <h4>Entrez vos informations banquaires (MasterCard pour n'importe quel prix, Visa uniquement en-dessous de 50€)</h4>
-    </div>
+        <p>Exemple fourni par MangoPay pour un payement de moins de 50 euros: 4972485830400049</p>
 
-    <form action={{ registrationUrl }} method="post">
         <input type="hidden" name="data" value={{ data }} />
         <input type="hidden" name="accessKeyRef" value={{ accessKeyRef }} />
         <input type="hidden" name="returnURL" value={{ returnURL }} />
 
-        <label for="cardNumber">Numéro de la carte (exemple pour un payement de moins de 50 euros: 4972485830400049)</label>
-        <input type="text" name="cardNumber" value="" />
-        <div></div>
+        <div class="container">
+            <label for="cardNumber">Numéro de la carte</label>
+            <input type="text" name="cardNumber" value="" />
+            <br>
 
-        <label for="cardExpirationDate">Date d'expiration ( au format MMAA)</label>
-        <input type="text" name="cardExpirationDate" value="" />
-        <div></div>
+            <label for="cardExpirationDate">Date d'expiration</label>
+            <input type="text" name="cardExpirationDate" value="" placeholder="au format MMAA"/>
+            <br>
 
-        <label for="cardCvx">Cryptogramme</label>
-        <input type="text" name="cardCvx" value="" />
-        <div></div>
+            <label for="cardCvx">Cryptogramme</label>
+            <input type="text" name="cardCvx" value="" />
+            <br>
 
-        <input type="submit" value="Confirmer le payement" />
+            <button type="submit">Confirmer le payement</button>
+        </div>
     </form>
+
 {% endblock %}

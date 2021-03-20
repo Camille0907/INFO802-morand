@@ -2,35 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>S'inscrire</title>
+    <title>S'inscrire sur My MarketPlace</title>
+    <link href="../static/css/style.css" rel="stylesheet" media="all" type="text/css">
 </head>
 <body>
-    <h1> Inscription </h1>
-    <form action="/register/" method="post">
-        <p>Remplissez les informations pour créer un compte.</p>
-        <hr>
+    <h1><a href="/">My MarketPlace </a></h1>
+    <h2> Inscription </h2>
+    <form action="/register/" method="post"  class="registration">
+        <h4>Remplissez les informations pour créer un compte.</h4>
+        <div class="container">
 
-        <label for="firstName"><b>Prénom</b></label>
-        <input type="text" name="firstName" id="firstName" required>
+            <label for="firstName">Prénom</label>
+            <input type="text" name="firstName" id="firstName" required><br>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" name="email" id="email" required>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required><br>
 
-        <label for="postcode"><b>Code postal (français)</b></label>
-        <input type="text" name="postcode" id="postcode" required>
+            <label for="postcode">Code postal (français)</label>
+            <input type="text" name="postcode" id="postcode" required><br>
 
-        {% if error %}
-            <p>Le nom d'utilisateur existe déjà: veuillez en choisir un autre.</p>
-        {% endif %}
-        <label for="username"><b>Nom d'utilisateur</b></label>
-        <input type="text" name="username" id="username" required>
+            {% if error %}
+                <p class="error">Le nom d'utilisateur existe déjà: veuillez en choisir un autre.</p>
+            {% endif %}
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="username" required><br>
 
-        <label for="password"><b>Mot de passe</b></label>
-        <input type="password" name="password" id="password" required>
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password" required><br>
 
-        <hr>
-
-        <button type="submit">S'inscrire</button>
+            <button type="submit">S'inscrire</button>
+         </div>
     </form>
     <p>Vous avez déjà un compte ? <a href="/connection/">Connectez-vous.</a></p>
 </body>

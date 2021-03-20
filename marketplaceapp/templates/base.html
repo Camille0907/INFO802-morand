@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>My MarketPlace</title>
+    <link href={{ url_for('static', filename='css/style.css') }} rel="stylesheet" media="all" type="text/css">
 </head>
+
 <body>
+<header>
+
     {% if isUserConnected %}
-        <p>Bonjour {{ userName }} !</p>
-        <form action="/logout/"> <input type="submit" value="Se déconnecter" /> </form>
-        <a href="/personnalProducts/">Mes produits</a>
+        <p class="upMenu" >
+            Bonjour {{ userName }} !
+            <a href="/logout/">Se déconnecter</a>
+        </p>
+        <br>
+        {% if not isOnPersonnelProducts %}
+            <a href="/personnalProducts/">Voir mes produits</a>
+        {% else %}
+            <a href="/newProduct/">Ajouter un nouveau produit</a>
+        {% endif %}
     {% else %}
         <a href="/connection/">Se connecter</a>
         <a href="/registration/">S'inscrire</a>
+        <br>
     {% endif %}
-    <h1> <a href="/">My MarketPlace </a></h1>
+    {% if not isOnIndex %}
+        <a href="/">Voir tous les produits</a>
+    {% endif %}
+
+    <h1><a href="/">My MarketPlace </a></h1>
+</header>
 {% block content %}{% endblock %}
 </body>
 </html>

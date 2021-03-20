@@ -1,2 +1,8 @@
-<img src= "{{ product['imageRef'] }}" alt="Image du produit {{ product['entitle'] }}" />
-<p>{{ product['entitle'] }}</p>
+<div class="product">
+    <img src= "{{ product['imageRef'] }}" alt="Image du produit {{ product['entitle'] }}" />
+    <p>{{ product['entitle'] }}</p>
+    {% if isOnPersonnelProducts %}
+        <a href="/deleteProduct/{{ product['id'] }}">Supprimer</a>
+        <a href="/productModification/{{ product['id'] }}">Modifer</a>
+    {% endif %}
+</div>
