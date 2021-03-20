@@ -7,6 +7,8 @@ class User(ObjectType):
     password = String()
     firstName = String()
     postcode = String()
+    mangoId = ID()
+    walletId = ID()
 
     def __init__(self, idDoc, userDict, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -15,4 +17,6 @@ class User(ObjectType):
         self.password = userDict['password']
         self.firstName = userDict['firstName']
         self.postcode = userDict['postcode']
+        self.mangoId = userDict['mangoId']
+        self.walletId = userDict['walletId']
 

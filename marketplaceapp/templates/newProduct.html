@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Ajouter un produit</h1>
+    <form action="/addProduct/" method="post">
+        <p>Remplissez les informations pour ajouter un produit.</p>
+        <hr>
+
+        <label for="entitle"><b>Intitulé du produit</b></label>
+        <input type="text" name="entitle" id="entitle" required>
+
+        <label for="imageRef"><b>Lien vers une image du produit (en ligne)</b></label>
+        <input type="url" name="imageRef" id="imageRef" required>
+
+        <label for="price"><b>Prix du produit</b></label>
+        <input type="text" name="price" id="price" required>
+
+        <label for="weight"><b>Poids du produit</b></label>
+        <input type="text" name="weight" id="weight" required>
+
+        <hr>
+
+        <button type="submit">Ajouter le produit</button>
+    </form>
+{% endblock %}

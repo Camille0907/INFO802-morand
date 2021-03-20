@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Mes produits</h1>
+    <form action="/newProduct/"> <input type="submit" value="Ajouter un nouveau produit" /> </form>
+    {% for i in range(products|length) %}
+        {% with product = products[i] %}
+            {% include 'productDisplay.html' %}
+            <a href="/deleteProduct/{{ product['id'] }}">Supprimer</a>
+            <a href="/productModification/{{ product['id'] }}">Modifer</a>
+        {% endwith %}
+    {% endfor %}
+{% endblock %}

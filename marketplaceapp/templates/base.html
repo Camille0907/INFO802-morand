@@ -7,7 +7,8 @@
 <body>
     {% if isUserConnected %}
         <p>Bonjour {{ userName }} !</p>
-            <form action="/logout/"> <input type="submit" value="Se déconnecter" /> </form>
+        <form action="/logout/"> <input type="submit" value="Se déconnecter" /> </form>
+        <a href="/personnalProducts/">Mes produits</a>
     {% else %}
         <a href="/connection/">Se connecter</a>
         <a href="/registration/">S'inscrire</a>
