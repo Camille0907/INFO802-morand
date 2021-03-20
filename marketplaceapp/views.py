@@ -143,7 +143,7 @@ def personnalProducts():
 @app.route('/deleteProduct/<product_id>')
 def deleteProduct(product_id):
     schema.execute('mutation productDeletion($idDoc: ID){ deleteProduct(idDoc: $idDoc) {id}}',
-                   variables={'<idDoc': product_id})
+                   variables={'idDoc': product_id})
     return personnalProducts()
 
 
